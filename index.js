@@ -1,11 +1,12 @@
+import cors from "cors"
 const express = require('express')
-const port = 3000
+const port = 3001
 
 
 const app = express()
 const uuid = require('uuid')
 app.use(express.json())
-
+app.use (cors())
 
 const users = []
 
@@ -88,4 +89,5 @@ app.delete('/users/:id', checkUserId, (request, response) => { // deletando info
 
 
 app.listen(port, () => {
-    console.log(`Servidor ${ port } rodando 🚀)}`)
+    console.log(`Servidor ${ port } rodando 🚀`);
+});
